@@ -1,0 +1,22 @@
+<%= render 'layouts/navbar' %>
+<%= render 'layouts/stylish' %>
+<div class="text-center padded">
+  <%= link_to "Create a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card text-center" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= cocktail.image_url %>');">
+        <h2><%= cocktail.name %></h2>
+        <h2><%= cocktail.description %></h2>
+      </div>
+      <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
+
